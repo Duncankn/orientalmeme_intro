@@ -1,12 +1,13 @@
+
 import React from 'react';
 import Header from './components/Header';
 import Vision from './components/Vision';
 import Features from './components/Features';
 import Roadmap from './components/Roadmap';
 import ConceptArt from './components/ConceptArt';
-import FortuneGame from './components/FortuneGame';
 import Countdown from './components/Countdown';
 import Footer from './components/Footer';
+import FortuneGame from './components/FortuneGame';
 
 const App: React.FC = () => {
   // Set a target date for the countdown, e.g., 90 days from now
