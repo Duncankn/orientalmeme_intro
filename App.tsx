@@ -1,10 +1,10 @@
-
 import React from 'react';
 import Header from './components/Header';
 import Vision from './components/Vision';
 import Features from './components/Features';
 import Roadmap from './components/Roadmap';
 import ConceptArt from './components/ConceptArt';
+import FortuneGame from './components/FortuneGame';
 import Countdown from './components/Countdown';
 import Footer from './components/Footer';
 
@@ -22,6 +22,7 @@ const App: React.FC = () => {
           <Features />
           <Roadmap />
           <ConceptArt />
+          <FortuneGame />
           <Countdown targetDate={countdownTargetDate} />
         </div>
         <Footer />
