@@ -1,7 +1,16 @@
 
 import React, { useState } from 'react';
-import { fortunes, Fortune } from '../data/fortunes';
+import { useI18n } from '../context/I18nContext';
 import { FortuneStickIcon } from './icons/FortuneStickIcon';
+
+// Define the type for a single fortune
+export interface Fortune {
+  tier: 'best' | 'good' | 'neutral' | 'bad';
+  type: string;
+  title: string;
+  poem: string;
+  explanation: string;
+}
 
 const SectionTitle: React.FC<{ children: React.ReactNode }> = ({ children }) => (
     <h2 className="text-3xl md:text-4xl font-bold text-center text-transparent bg-clip-text bg-gradient-to-br from-gray-200 to-gray-500 mb-12">
@@ -10,6 +19,7 @@ const SectionTitle: React.FC<{ children: React.ReactNode }> = ({ children }) => 
 );
 
 const FortuneGame: React.FC = () => {
+  const { t } = useI18n();
   const [isShaking, setIsShaking] = useState(false);
   const [result, setResult] = useState<Fortune | null>(null);
   const [showResult, setShowResult] = useState(false);
@@ -17,6 +27,7 @@ const FortuneGame: React.FC = () => {
   const handleShake = () => {
     if (isShaking) return;
     
+    const fortunes: Fortune[] = t('fortunes');
     setShowResult(false);
     setIsShaking(true);
     setResult(null);
@@ -25,7 +36,7 @@ const FortuneGame: React.FC = () => {
       const randomIndex = Math.floor(Math.random() * fortunes.length);
       setResult(fortunes[randomIndex]);
       setIsShaking(false);
-      setTimeout(() => setShowResult(true), 100); // Allow state to update before triggering transition
+      setTimeout(() => setShowResult(true), 100);
     }, 2500);
   };
 
@@ -46,7 +57,7 @@ const FortuneGame: React.FC = () => {
 
   return (
     <section id="fortune-game">
-      <SectionTitle>搖一搖，預見未來</SectionTitle>
+      <SectionTitle>{t('fortuneGame.title')}</SectionTitle>
       <div className="flex flex-col items-center gap-8">
         <div className={`transition-transform duration-300 ${isShaking ? 'animate-shake' : ''}`}>
           <FortuneStickIcon className="w-40 h-40" />
@@ -56,7 +67,7 @@ const FortuneGame: React.FC = () => {
           disabled={isShaking}
           className="px-8 py-4 bg-purple-600 text-white font-bold rounded-lg shadow-lg hover:bg-purple-500 disabled:bg-slate-600 disabled:cursor-not-allowed transition-all transform hover:scale-105"
         >
-          {isShaking ? '搖晃中...' : '搖一搖，測運勢'}
+          {isShaking ? t('fortuneGame.buttonShaking') : t('fortuneGame.button')}
         </button>
 
         {showResult && result && (
@@ -65,7 +76,7 @@ const FortuneGame: React.FC = () => {
                     <span className={`font-bold text-2xl ${tierTextColors[result.tier]}`}>{result.type} - {result.title}</span>
                     <p className="text-gray-300 text-lg mt-4 whitespace-pre-wrap font-semibold">{result.poem}</p>
                     <div className="border-t border-slate-700 my-4"></div>
-                    <h4 className="font-bold text-purple-300">【解曰】</h4>
+                    <h4 className="font-bold text-purple-300">{t('fortuneGame.explanationTitle')}</h4>
                     <p className="text-gray-400 mt-2">{result.explanation}</p>
                 </div>
             </div>

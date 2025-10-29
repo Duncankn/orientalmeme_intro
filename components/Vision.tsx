@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { useI18n } from '../context/I18nContext';
 
 const SectionTitle: React.FC<{ children: React.ReactNode }> = ({ children }) => (
   <h2 className="text-3xl md:text-4xl font-bold text-center text-transparent bg-clip-text bg-gradient-to-br from-gray-200 to-gray-500 mb-12">
@@ -8,13 +9,13 @@ const SectionTitle: React.FC<{ children: React.ReactNode }> = ({ children }) => 
 );
 
 const Vision: React.FC = () => {
+  const { t } = useI18n();
   return (
     <section id="vision">
-      <SectionTitle>我們的願景</SectionTitle>
+      <SectionTitle>{t('vision.title')}</SectionTitle>
       <div className="max-w-3xl mx-auto text-center text-gray-300 text-lg md:text-xl leading-relaxed">
         <p>
-          我們是迷因與玄學的融合體，一個旨在超越傳統 Meme 幣的數字文化實驗。
-          我們的使命是構建一個充滿東方神秘色彩的去中心化宇宙，讓每個參與者都能在這裡找到獨特的數字身份歸屬感。
+          {t('vision.description')}
         </p>
       </div>
     </section>

@@ -1,10 +1,14 @@
 
 import React from 'react';
+import { useI18n } from '../context/I18nContext';
 
-interface RoadmapItemProps {
+interface RoadmapItemData {
   phase: string;
   title: string;
   description: string;
+}
+
+interface RoadmapItemProps extends RoadmapItemData {
   status: 'done' | 'current' | 'future';
 }
 
@@ -15,6 +19,7 @@ const SectionTitle: React.FC<{ children: React.ReactNode }> = ({ children }) => 
 );
 
 const RoadmapItem: React.FC<RoadmapItemProps> = ({ phase, title, description, status }) => {
+  const { t } = useI18n();
   const statusStyles = {
     done: {
       ring: 'ring-green-500',
@@ -39,7 +44,7 @@ const RoadmapItem: React.FC<RoadmapItemProps> = ({ phase, title, description, st
     <div className="relative pl-8 md:pl-10">
       <div className={`absolute left-0 top-1.5 w-4 h-4 rounded-full ${currentStatus.bg} ring-4 ${currentStatus.ring}`}></div>
       <div className="flex flex-col">
-        <span className={`font-bold text-sm uppercase ${currentStatus.text}`}>{phase} {status === 'current' && ' (現在位置)'}</span>
+        <span className={`font-bold text-sm uppercase ${currentStatus.text}`}>{phase} {status === 'current' && t('roadmap.currentLocation')}</span>
         <h3 className="text-xl font-bold text-white mt-1">{title}</h3>
         <p className="text-gray-400 mt-2">{description}</p>
       </div>
@@ -48,36 +53,31 @@ const RoadmapItem: React.FC<RoadmapItemProps> = ({ phase, title, description, st
 };
 
 const Roadmap: React.FC = () => {
+    const { t } = useI18n();
+    const roadmapItems: RoadmapItemData[] = t('roadmap.items');
+
     const roadmapData: RoadmapItemProps[] = [
     {
-      phase: '第 0 階段',
-      title: '籌備與啟動期',
-      description: '白皮書發布，創世登陸頁上線，核心社群建立。',
+      ...roadmapItems[0],
       status: 'current',
     },
     {
-      phase: '第 1 階段',
-      title: '創世紀',
-      description: '本命星盤 SBT 鑄造開啟，法器 NFT 預售，IDO/私募輪。',
+      ...roadmapItems[1],
       status: 'future',
     },
     {
-      phase: '第 2 階段',
-      title: '生態啟動',
-      description: '治理代幣 $LING 上線，質押與基礎治理功能開放。',
+      ...roadmapItems[2],
       status: 'future',
     },
     {
-      phase: '第 3 階段',
-      title: '應用落地',
-      description: 'DApp V1 上線，「數字祈福」功能開啟，生態燃料 $CHEGONG 上線。',
+      ...roadmapItems[3],
       status: 'future',
     },
   ];
 
   return (
     <section id="roadmap">
-      <SectionTitle>項目路線圖</SectionTitle>
+      <SectionTitle>{t('roadmap.title')}</SectionTitle>
       <div className="relative flex flex-col gap-12 border-l-2 border-slate-700 ml-2">
         {roadmapData.map((item) => (
           <RoadmapItem key={item.phase} {...item} />
