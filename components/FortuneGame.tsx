@@ -9,7 +9,7 @@ export interface Fortune {
   type: string;
   title: string;
   poem: string;
-  explanation: string;
+  explanation?: string;
 }
 
 const SectionTitle: React.FC<{ children: React.ReactNode }> = ({ children }) => (
@@ -75,9 +75,13 @@ const FortuneGame: React.FC = () => {
                 <div className="text-center">
                     <span className={`font-bold text-2xl ${tierTextColors[result.tier]}`}>{result.type} - {result.title}</span>
                     <p className="text-gray-300 text-lg mt-4 whitespace-pre-wrap font-semibold">{result.poem}</p>
-                    <div className="border-t border-slate-700 my-4"></div>
-                    <h4 className="font-bold text-purple-300">{t('fortuneGame.explanationTitle')}</h4>
-                    <p className="text-gray-400 mt-2">{result.explanation}</p>
+                    {result.explanation && (
+                      <>
+                        <div className="border-t border-slate-700 my-4"></div>
+                        <h4 className="font-bold text-purple-300">{t('fortuneGame.explanationTitle')}</h4>
+                        <p className="text-gray-400 mt-2">{result.explanation}</p>
+                      </>
+                    )}
                 </div>
             </div>
         )}
