@@ -79,7 +79,7 @@ const FortuneGame: React.FC = () => {
                       <>
                         <div className="border-t border-slate-700 my-4"></div>
                         <h4 className="font-bold text-purple-300">{t('fortuneGame.explanationTitle')}</h4>
-                        <p className="text-gray-400 mt-2">{result.explanation}</p>
+                        <p className="text-gray-400 mt-2 whitespace-pre-wrap">{result.explanation}</p>
                       </>
                     )}
                 </div>
