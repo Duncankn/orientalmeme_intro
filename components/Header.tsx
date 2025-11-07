@@ -48,7 +48,7 @@ const Header: React.FC = () => {
         </a>
       </div>
        <div className="mt-12">
-           <a href="#" className="text-purple-400 hover:text-purple-300 transition-colors duration-300 font-semibold text-lg rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-slate-900 focus:ring-purple-400">
+           <a href="https://whitepaper.orientalmeme.com" target="_blank" rel="noopener noreferrer" className="text-purple-400 hover:text-purple-300 transition-colors duration-300 font-semibold text-lg rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-slate-900 focus:ring-purple-400">
              {t('header.whitepaperLink')} &rarr;
            </a>
        </div>
