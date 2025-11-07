@@ -2,7 +2,7 @@
 import React from 'react';
 
 export const NatalChartIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
-  <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" {...props}>
+  <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" aria-hidden="true" focusable="false" {...props}>
     <circle cx="12" cy="12" r="10"></circle>
     <circle cx="12" cy="12" r="3"></circle>
     <line x1="12" y1="2" x2="12" y2="5"></line>

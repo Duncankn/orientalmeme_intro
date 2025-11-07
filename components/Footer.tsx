@@ -17,12 +17,12 @@ const Footer: React.FC = () => {
           {t('footer.description')}
         </p>
         <div className="mt-8 flex justify-center gap-6">
-            <a href="#" aria-label="Discord" className="text-gray-400 hover:text-indigo-400 transition-colors"><DiscordIcon className="w-8 h-8"/></a>
-            <a href="#" aria-label="Twitter" className="text-gray-400 hover:text-sky-400 transition-colors"><TwitterIcon className="w-8 h-8"/></a>
-            <a href="#" aria-label="Telegram" className="text-gray-400 hover:text-blue-400 transition-colors"><TelegramIcon className="w-8 h-8"/></a>
+            <a href="#" aria-label="Discord" className="text-gray-400 hover:text-indigo-400 transition-colors rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-slate-900 focus:ring-indigo-400"><DiscordIcon className="w-8 h-8"/></a>
+            <a href="#" aria-label="Twitter" className="text-gray-400 hover:text-sky-400 transition-colors rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-slate-900 focus:ring-sky-400"><TwitterIcon className="w-8 h-8"/></a>
+            <a href="#" aria-label="Telegram" className="text-gray-400 hover:text-blue-400 transition-colors rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-slate-900 focus:ring-blue-400"><TelegramIcon className="w-8 h-8"/></a>
         </div>
         <div className="mt-10">
-           <a href="#" className="text-purple-400 hover:text-purple-300 transition-colors duration-300 font-semibold">
+           <a href="#" className="text-purple-400 hover:text-purple-300 transition-colors duration-300 font-semibold rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-slate-900 focus:ring-purple-400">
              {t('footer.whitepaperLink')}
            </a>
         </div>

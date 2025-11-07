@@ -65,26 +65,28 @@ const FortuneGame: React.FC = () => {
         <button
           onClick={handleShake}
           disabled={isShaking}
-          className="px-8 py-4 bg-purple-600 text-white font-bold rounded-lg shadow-lg hover:bg-purple-500 disabled:bg-slate-600 disabled:cursor-not-allowed transition-all transform hover:scale-105"
+          className="px-8 py-4 bg-purple-600 text-white font-bold rounded-lg shadow-lg hover:bg-purple-500 disabled:bg-slate-600 disabled:cursor-not-allowed transition-all transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-slate-900 focus:ring-purple-500"
         >
           {isShaking ? t('fortuneGame.buttonShaking') : t('fortuneGame.button')}
         </button>
 
+        <div aria-live="polite" aria-atomic="true" className="w-full flex justify-center">
         {showResult && result && (
             <div className={`w-full max-w-md p-6 rounded-xl border backdrop-blur-sm mt-8 transition-all duration-500 transform ${showResult ? 'scale-100 opacity-100' : 'scale-95 opacity-0'} ${tierColors[result.tier]}`}>
                 <div className="text-center">
-                    <span className={`font-bold text-2xl ${tierTextColors[result.tier]}`}>{result.type} - {result.title}</span>
+                    <h3 className={`font-bold text-2xl ${tierTextColors[result.tier]}`}>{result.type} - {result.title}</h3>
                     <p className="text-gray-300 text-lg mt-4 whitespace-pre-wrap font-semibold">{result.poem}</p>
                     {result.explanation && (
                       <>
                         <div className="border-t border-slate-700 my-4"></div>
-                        <h4 className="font-bold text-purple-300">{t('fortuneGame.explanationTitle')}</h4>
+                        <p className="font-bold text-purple-300">{t('fortuneGame.explanationTitle')}</p>
                         <p className="text-gray-400 mt-2 whitespace-pre-wrap">{result.explanation}</p>
                       </>
                     )}
                 </div>
             </div>
         )}
+        </div>
       </div>
     </section>
   );

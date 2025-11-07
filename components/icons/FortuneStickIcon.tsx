@@ -2,7 +2,7 @@
 import React from 'react';
 
 export const FortuneStickIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
-  <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+  <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" {...props}>
     {/* Sticks */}
     <rect x="48" y="10" width="4" height="40" rx="2" fill="#D2B48C"/>
     <rect x="42" y="12" width="4" height="40" rx="2" fill="#D2B48C" transform="rotate(-10 42 12)"/>

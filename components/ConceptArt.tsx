@@ -19,13 +19,13 @@ const SectionTitle: React.FC<{ children: React.ReactNode }> = ({ children }) => 
 const ArtCard: React.FC<ArtCardProps> = ({ imageUrl, title, description }) => {
     const { t } = useI18n();
     return (
-        <div className="group relative overflow-hidden rounded-xl border border-slate-800 bg-slate-900">
-            <img src={imageUrl} alt={title} className="w-full h-full object-contain p-8 transition-transform duration-500 group-hover:scale-110" />
-            <div className="absolute inset-0 bg-black bg-opacity-50 group-hover:bg-opacity-70 transition-all duration-300"></div>
+        <div className="group relative overflow-hidden rounded-xl border border-slate-800 bg-slate-900 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-slate-900" tabIndex={0}>
+            <img src={imageUrl} alt={title} className="w-full h-full object-contain p-8 transition-transform duration-500 group-hover:scale-110 group-focus:scale-110" />
+            <div className="absolute inset-0 bg-black bg-opacity-50 group-hover:bg-opacity-70 group-focus:bg-opacity-70 transition-all duration-300" aria-hidden="true"></div>
             <div className="absolute bottom-0 left-0 p-6">
                 <span className="text-xs font-bold uppercase text-purple-400 bg-purple-900/50 px-2 py-1 rounded">{t('conceptArt.tag')}</span>
                 <h3 className="text-2xl font-bold text-white mt-2">{title}</h3>
-                <p className="text-gray-300 opacity-0 group-hover:opacity-100 transition-opacity duration-300">{description}</p>
+                <p className="text-gray-300 opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity duration-300">{description}</p>
             </div>
         </div>
     );

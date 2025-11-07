@@ -27,28 +27,28 @@ const Header: React.FC = () => {
       <div className="mt-12 flex flex-col sm:flex-row gap-4">
         <a
           href="#"
-          className="flex items-center justify-center gap-3 px-6 py-3 bg-indigo-600 text-white font-bold rounded-lg shadow-lg hover:bg-indigo-500 transition-transform transform hover:scale-105"
+          className="flex items-center justify-center gap-3 px-6 py-3 bg-indigo-600 text-white font-bold rounded-lg shadow-lg hover:bg-indigo-500 transition-transform transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-slate-900 focus:ring-indigo-500"
         >
           <DiscordIcon className="w-6 h-6" />
           <span>{t('header.buttons.discord')}</span>
         </a>
         <a
           href="#"
-          className="flex items-center justify-center gap-3 px-6 py-3 bg-gray-700 text-white font-bold rounded-lg shadow-lg hover:bg-gray-600 transition-transform transform hover:scale-105"
+          className="flex items-center justify-center gap-3 px-6 py-3 bg-gray-700 text-white font-bold rounded-lg shadow-lg hover:bg-gray-600 transition-transform transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-slate-900 focus:ring-gray-500"
         >
           <TwitterIcon className="w-6 h-6" />
           <span>{t('header.buttons.twitter')}</span>
         </a>
         <a
           href="#"
-          className="flex items-center justify-center gap-3 px-6 py-3 bg-sky-500 text-white font-bold rounded-lg shadow-lg hover:bg-sky-400 transition-transform transform hover:scale-105"
+          className="flex items-center justify-center gap-3 px-6 py-3 bg-sky-500 text-white font-bold rounded-lg shadow-lg hover:bg-sky-400 transition-transform transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-slate-900 focus:ring-sky-400"
         >
           <TelegramIcon className="w-6 h-6" />
           <span>{t('header.buttons.telegram')}</span>
         </a>
       </div>
        <div className="mt-12">
-           <a href="#" className="text-purple-400 hover:text-purple-300 transition-colors duration-300 font-semibold text-lg">
+           <a href="#" className="text-purple-400 hover:text-purple-300 transition-colors duration-300 font-semibold text-lg rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-slate-900 focus:ring-purple-400">
              {t('header.whitepaperLink')} &rarr;
            </a>
        </div>

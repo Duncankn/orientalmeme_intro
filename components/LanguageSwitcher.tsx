@@ -13,7 +13,7 @@ export const LanguageSwitcher: React.FC = () => {
   return (
     <button
       onClick={handleToggle}
-      className="text-gray-400 hover:text-white transition-colors font-semibold"
+      className="text-gray-400 hover:text-white transition-colors font-semibold rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-slate-900 focus:ring-gray-400"
       aria-label="切换语言 / 切換語言"
     >
       {language === 'zh-CN' ? '繁體中文' : '简体中文'}
